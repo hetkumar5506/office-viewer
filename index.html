@@ -3,10 +3,36 @@
 <head>
   <title>Office Walkthrough</title>
   <style>
-    body { margin: 0; overflow: hidden; }
+    body { margin: 0; overflow: hidden; font-family: sans-serif; }
+
+    #info {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      padding: 10px;
+      border-radius: 8px;
+      z-index: 10;
+    }
+
+    #mobileControls {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 10;
+      display: none;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 6px;
+      border: none;
+    }
   </style>
 
-  <!-- Import map -->
   <script type="importmap">
   {
     "imports": {
@@ -15,7 +41,29 @@
   }
   </script>
 </head>
+
 <body>
-  <script type="module" src="./main.js"></script>
+
+<div id="info">
+  Click to start<br>
+  W A S D → Move<br>
+  Mouse → Look<br>
+  (Mobile: Use buttons + swipe)
+</div>
+
+<!-- 📱 Mobile Controls -->
+<div id="mobileControls">
+  <div>
+    <button ontouchstart="moveForward=true" ontouchend="moveForward=false">↑</button>
+  </div>
+  <div>
+    <button ontouchstart="moveLeft=true" ontouchend="moveLeft=false">←</button>
+    <button ontouchstart="moveBackward=true" ontouchend="moveBackward=false">↓</button>
+    <button ontouchstart="moveRight=true" ontouchend="moveRight=false">→</button>
+  </div>
+</div>
+
+<script type="module" src="./main.js"></script>
+
 </body>
 </html>
